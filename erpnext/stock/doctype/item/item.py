@@ -955,7 +955,46 @@ def check_stock_uom_with_bin(item, stock_uom):
 		frappe.throw(
 			_("Default Unit of Measure for Item {0} cannot be changed directly because you have already made some transaction(s) with another UOM. You will need to create a new Item to use a different Default UOM.").format(item))
 
-def get_item_defaults(item_code, company):
+def get_itemfrom __future__ import unicode_literals
+import frappe
+from frappe import _, msgprint, throw
+from erpnext.assets.doctype.asset.asset import Asset
+# from asset_management.controllers.buying_controller import *
+
+
+def validate_f(doc, method):
+    doc.set_missing_values()
+    if doc.doctype == "Asset":
+        frappe.msgprint(_("This method is imported into the doctype and works @ 11:50 3/16/20"))
+
+
+def on_submit_f(doc, method):
+    doc.validate_in_use_date()
+
+
+def validate_in_use_date(doc):
+    if not doc.available_for_use_date:
+        frappe.throw(_("validate_in_use_date method is working within the app asset_managemen @ 10:46 AM 3/16/20"))
+
+
+def a_import(doc, method):
+    Asset.validate_in_use_date = validate_in_use_date
+    # Asset.validate_cancellation = validate_cancellation
+    # Asset.make_sales_invoice = make_sales_invoice
+    # Asset.set_missing_values = set_missing_values
+
+# doc.validate_in_use_date()
+# doc.set_status()
+# doc.make_asset_movement()
+# if not doc.booked_fixed_asset and is_cwip_accounting_enabled(doc.asset_category):
+# 	doc.make_gl_entries()
+
+
+# def build_asset(doc,method):
+#
+# 	doc.validate = validate
+# 	doc.on_submit = on_submit
+_defaults(item_code, company):
 	item = frappe.get_cached_doc('Item', item_code)
 
 	out = item.as_dict()
