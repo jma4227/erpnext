@@ -14,7 +14,7 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Homepage Section",
-					"description": _("Add cards or custom_ sections on homepage"),
+					"description": _("Add cards or custom sections on homepage"),
 				},
 				{
 					"type": "doctype",

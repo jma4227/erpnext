@@ -6,7 +6,7 @@ import frappe
 from frappe import _
 
 def execute():
-	# delete custom_ field if exists
+	# delete custom field if exists
 	for doctype, fieldname in (('Issue', 'issue_type'), ('Opportunity', 'opportunity_type')):
 		custom_field = frappe.db.get_value("Custom Field", {"fieldname": fieldname, 'dt': doctype})
 		if custom_field:

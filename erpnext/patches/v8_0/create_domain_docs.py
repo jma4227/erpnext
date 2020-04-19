@@ -38,7 +38,7 @@ def execute():
 			continue
 
 		if not frappe.db.get_value("Domain", domain):
-			# user added custom_ domain in companies domain field
+			# user added custom domain in companies domain field
 			create_domain(domain)
 
 		row = domain_settings.append("active_domains", dict(domain=domain))
