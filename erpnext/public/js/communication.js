@@ -1,6 +1,6 @@
 frappe.ui.form.on("Communication", {
 	refresh: (frm) => {
-		// setup custom Make button only if Communication is Email
+		// setup custom_ Make button only if Communication is Email
 		if(frm.doc.communication_medium == "Email" && frm.doc.sent_or_received == "Received") {
 			frm.events.setup_custom_buttons(frm);
 		}

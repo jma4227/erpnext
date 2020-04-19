@@ -15,7 +15,7 @@ def execute():
 	'''
 
 	frappe.reload_doc('core', 'doctype', 'docfield')
-	frappe.reload_doc('custom', 'doctype', 'custom_field')
+	frappe.reload_doc('custom_', 'doctype', 'custom_field')
 
 	enable_for_fields = [
 		['Customer', 'customer_name'],

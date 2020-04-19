@@ -40,7 +40,7 @@ frappe.ui.form.on('Payment Order', {
 	},
 
 	remove_button: function(frm) {
-		// remove custom button of order type that is not imported
+		// remove custom_ button of order type that is not imported
 
 		let label = ["Payment Request", "Payment Entry"];
 

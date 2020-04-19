@@ -55,7 +55,7 @@ class TestHomepageSection(unittest.TestCase):
 			'doctype': 'Homepage Section',
 			'name': 'Custom HTML Section',
 			'section_based_on': 'Custom HTML',
-			'section_html': '<div class="custom-section">My custom html</div>',
+			'section_html': '<div class="custom_-section">My custom_ html</div>',
 		}).insert()
 
 		set_request(method='GET', path='home')
@@ -66,11 +66,11 @@ class TestHomepageSection(unittest.TestCase):
 		html = frappe.safe_decode(response.get_data())
 
 		soup = BeautifulSoup(html, 'html.parser')
-		sections = soup.find('main').find_all(class_='custom-section')
+		sections = soup.find('main').find_all(class_='custom_-section')
 		self.assertEqual(len(sections), 1)
 
 		homepage_section = sections[0]
-		self.assertEqual(homepage_section.text, 'My custom html')
+		self.assertEqual(homepage_section.text, 'My custom_ html')
 
 		# cleanup
 		frappe.db.rollback()

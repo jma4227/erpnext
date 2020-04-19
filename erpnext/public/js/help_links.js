@@ -513,14 +513,14 @@ frappe.help.help_links['Form/BOM Update Tool'] = [
 //Customize
 
 frappe.help.help_links['Form/Customize Form'] = [
-	{ label: 'Custom Field', url: docsUrl + 'user/manual/en/customize-erpnext/custom-field' },
+	{ label: 'Custom Field', url: docsUrl + 'user/manual/en/customize-erpnext/custom_-field' },
 	{ label: 'Customize Field', url: docsUrl + 'user/manual/en/customize-erpnext/customize-form' },
 ]
 
 frappe.help.help_links['Form/Custom Field'] = [
-	{ label: 'Custom Field', url: docsUrl + 'user/manual/en/customize-erpnext/custom-field' },
+	{ label: 'Custom Field', url: docsUrl + 'user/manual/en/customize-erpnext/custom_-field' },
 ]
 
 frappe.help.help_links['Form/Custom Field'] = [
-	{ label: 'Custom Field', url: docsUrl + 'user/manual/en/customize-erpnext/custom-field' },
+	{ label: 'Custom Field', url: docsUrl + 'user/manual/en/customize-erpnext/custom_-field' },
 ]

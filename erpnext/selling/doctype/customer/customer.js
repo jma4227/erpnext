@@ -116,7 +116,7 @@ frappe.ui.form.on("Customer", {
 		if(!frm.doc.__islocal) {
 			frappe.contacts.render_address_and_contact(frm);
 
-			// custom buttons
+			// custom_ buttons
 			frm.add_custom_button(__('Accounting Ledger'), function() {
 				frappe.set_route('query-report', 'General Ledger',
 					{party_type:'Customer', party:frm.doc.name});
