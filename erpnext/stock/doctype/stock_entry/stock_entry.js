@@ -220,8 +220,8 @@ frappe.ui.form.on('Stock Entry', {
 					},
 					get_query_filters: {
 						docstatus: 1,
-						material_request_type: "Material Transfer",
-						status: ['!=', 'Transferred']
+						material_request_type: ["in", ["Material Transfer", "Material Issue"]],
+						status: ["not in", ["Transferred", "Issued"]]
 					}
 				})
 			}, __("Get items from"));
@@ -310,12 +310,12 @@ frappe.ui.form.on('Stock Entry', {
 			method: "erpnext.stock.get_item_details.get_serial_no",
 			args: {"args": args},
 			callback: function(r) {
-				if (!r.exe){
+				if (!r.exe && r.message){
 					frappe.model.set_value(cdt, cdn, "serial_no", r.message);
-				}
 
-				if (callback) {
-					callback();
+					if (callback) {
+						callback();
+					}
 				}
 			}
 		});
@@ -623,10 +623,15 @@ frappe.ui.form.on('Stock Entry Detail', {
 					if(r.message) {
 						var d = locals[cdt][cdn];
 						$.each(r.message, function(k, v) {
-							frappe.model.set_value(cdt, cdn, k, v); // qty and it's subsequent fields weren't triggered
+							if (v) {
+								frappe.model.set_value(cdt, cdn, k, v); // qty and it's subsequent fields weren't triggered
+							}
 						});
 						refresh_field("items");
-						erpnext.stock.select_batch_and_serial_no(frm, d);
+
+						if (!d.serial_no) {
+							erpnext.stock.select_batch_and_serial_no(frm, d);
+						}
 					}
 				}
 			});
